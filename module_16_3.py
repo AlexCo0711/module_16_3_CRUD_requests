@@ -44,7 +44,7 @@ async def put_users(
         age: Annotated[int,
             Path(ge=18, le=120, description='Введите возраст', example='24')]
 ) -> str:
-    # изменяем имя и возраст пользователя с user_id
+    # изменяем на новое user_id, имя, возраст пользователя с user_id
     users[user_id] = f'Имя: {username}, возраст: {age}'
     return f'Пользователь {user_id} обновлен'
 
