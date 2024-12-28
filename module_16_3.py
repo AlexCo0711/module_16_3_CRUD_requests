@@ -51,6 +51,7 @@ async def put_users(
 # запрос по маршруту '/user/{user_id}', который удаляет из словаря users
 # по ключу user_id пару
 @app.delete('/user/{user_id}')
-async def del_users(user_id: str) -> str:
+async def del_users(user_id: Annotated[str,
+            Path(description='Введите ID для удаления', example='1')]) -> str:
     users.pop(user_id)
     return f'Пользователь {user_id} удален'
